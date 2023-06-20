@@ -1,4 +1,5 @@
 #include "myArray.hpp"
+#include <string>
 
 void printArr(MyArray<int> &arr)
 {
@@ -31,10 +32,60 @@ void test1()
          << "arr2的大小为: " << arr2.getSize() << endl;
 }
 
+// 测试自定义数据类型
+class Person
+{
+public:
+    string m_Name;
+    int m_Age;
+
+public:
+    Person() {}
+    Person(string name, int age)
+    {
+        this->m_Name = name;
+        this->m_Age = age;
+    }
+};
+
+void printPersonArray(MyArray<Person> &personArr)
+{
+    for (int i = 0; i < personArr.getSize(); i++)
+    {
+        cout << "Name: " << personArr[i].m_Name << endl
+             << "Age: " << personArr[i].m_Age << endl;
+    }
+}
+
+void test2()
+{
+    MyArray<Person> personArr(5);
+    Person p1("孙悟空", 30);
+    Person p2("韩信", 20);
+    Person p3("妲己", 18);
+    Person p4("王昭君", 15);
+    Person p5("赵云", 24);
+
+    // 插入数据
+    personArr.Push_Back(p1);
+    personArr.Push_Back(p2);
+    personArr.Push_Back(p3);
+    personArr.Push_Back(p4);
+    personArr.Push_Back(p5);
+
+    printPersonArray(personArr);
+
+    cout << "pArr的容量为: " << personArr.getCapacity() << endl
+         << "pArr的大小为: " << personArr.getSize() << endl;
+}
+
 int main()
 {
     system("chcp 65001");
 
     test1();
+
+    test2();
+
     return 0;
 }
