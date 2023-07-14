@@ -38,7 +38,7 @@ void test1()
     cout << "pos = " << pos << endl;
 }
 
-// 替换
+//  替换
 void test2()
 {
     string str1 = "abcdefgde";
