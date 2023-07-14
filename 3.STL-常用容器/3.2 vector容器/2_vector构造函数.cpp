@@ -31,6 +31,15 @@ void test1()
         v1.push_back(i);
     }
     printVector(v1);
+
+    vector<int> v2(v1.begin(), v1.end()); // 将v[begin(), end())区间中的元素拷贝给本身。
+    printVector(v2);
+
+    vector<int> v3(10, 123);
+    printVector(v3);
+
+    vector<int> v4(v3);
+    printVector(v4);
 }
 
 int main()
